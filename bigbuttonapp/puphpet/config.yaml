@@ -73,13 +73,13 @@ users_groups:
     groups: {  }
     users: {  }
 firewall:
-    install: '1'
+    install: '0'
     rules: {  }
 cron:
     install: '1'
     jobs: {  }
 nginx:
-    install: '0'
+    install: '1'
     settings:
         default_vhost: 1
         proxy_buffer_size: 128k
@@ -90,8 +90,8 @@ nginx:
             server_name: bigbutton.dev
             server_aliases:
                 - www.bigbutton.dev
-            www_root: /var/www/bigbutton
-            listen_port: '80'
+            www_root: /var/www/www
+            listen_port: '8011'
             index_files:
                 - index.html
                 - index.htm
