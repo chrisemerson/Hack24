@@ -1,3 +1,4 @@
 suites:
     bigbuttonapp:
         namespace: BigButton\App
+        psr4_prefix: BigButton\App
