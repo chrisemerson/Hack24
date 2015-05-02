@@ -1,0 +1,16 @@
+{
+    "name": "bigbutton/bigbutton",
+    "require": {
+        "guzzlehttp/guzzle": "~5.2"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.2",
+        "behat/behat": "~3.0"
+    },
+    "authors": [
+        {
+            "name": "Chris Emerson",
+            "email": "chris@cemerson.co.uk"
+        }
+    ]
+}
