@@ -8,6 +8,6 @@ $inboundMessage = $inboundMessageFactory->constructFromXML($data);
 
 $inboundMessageHandler = new \BigButton\App\TextMessage\InboundMessageHandler();
 
-//Register listeners here
+$inboundMessageHandler->registerListener(new \BigButton\App\TextMessageListeners\ReplyToTextMessageListener());
 
 $inboundMessageHandler->onTextMessageReceived($inboundMessage);
