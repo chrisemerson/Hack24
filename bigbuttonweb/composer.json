@@ -1,0 +1,5 @@
+{
+    "require": {
+        "trello/trello": "0.1.*"
+    }
+}
