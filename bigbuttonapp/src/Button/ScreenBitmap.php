@@ -1,7 +1,7 @@
 <?php
 namespace BigButton\App\Button;
 
-class ButtonUpdateClass
+class ScreenBitmap
 {
 
 }
