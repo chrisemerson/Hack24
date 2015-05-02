@@ -1,1 +1,4 @@
-/vendor/
+/bigbuttonapp/vendor/
+/bigbuttonapp/bin/
+/bigbuttonweb/vendor/
+.idea/
