@@ -1,5 +1,8 @@
 {
     "name": "bigbutton/bigbutton",
+    "config": {
+      "bin-dir": "bin"
+    },
     "require": {
         "guzzlehttp/guzzle": "~5.2"
     },
@@ -8,9 +11,27 @@
         "behat/behat": "~3.0"
     },
     "authors": [
-        {
-            "name": "Chris Emerson",
-            "email": "chris@cemerson.co.uk"
+      {
+        "name": "Chris Emerson"
+      },
+      {
+        "name": "Richard Bagshaw"
+      },
+      {
+        "name": "Lewis Wright"
+      },
+      {
+        "name": "James Fowkes"
+      }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BigButton\\App\\": ["src/"]
         }
-    ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BigButton\\App\\": ["test/"]
+        }
+    }
 }
