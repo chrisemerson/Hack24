@@ -9,7 +9,8 @@
         "vlucas/phpdotenv": "~1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0"
+        "phpunit/phpunit": "~4.0",
+        "trello/trello": "0.1.*"
     },
     "autoload": {
         "psr-4": {
