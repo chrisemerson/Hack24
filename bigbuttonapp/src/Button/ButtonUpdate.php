@@ -1,6 +1,8 @@
 <?php
 namespace BigButton\App\Button;
 
+use BigButton\App\Colour\Colour;
+
 class ButtonUpdate
 {
     /** @var Colour */

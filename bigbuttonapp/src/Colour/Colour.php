@@ -1,5 +1,5 @@
 <?php
-namespace BigButton\App\Button;
+namespace BigButton\App\Colour;
 
 use BigButton\App\Exceptions\InvalidColourValueException;
 
