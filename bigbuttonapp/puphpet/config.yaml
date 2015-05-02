@@ -13,6 +13,9 @@ vagrantfile:
                 vflnp_35yylw3dssvu:
                     host: '5142'
                     guest: '22'
+                web:
+                    host: 80
+                    guest: 80
         post_up_message: ''
         provider:
             virtualbox:
