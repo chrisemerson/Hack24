@@ -41,7 +41,7 @@ class RateManager implements TextMessageListener
             else if ($class == 'neu') {
                 $colour = 'yellow';
             }
-            else if ($class == 'neg') {
+            else {
                 $colour = 'red';
             }
 
