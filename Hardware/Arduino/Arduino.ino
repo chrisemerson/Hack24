@@ -43,6 +43,7 @@ void onButtonPress(BTN_STATE_ENUM btnState)
 
 void handleSerial(char nextByte)
 {
+	Serial.print(nextByte);
 	static uint8_t nextColour = 0;
 	static uint16_t colours[3];
 
@@ -52,16 +53,6 @@ void handleSerial(char nextByte)
 	{
 		nextColour = 0;
 
-		uint16_t sum = colours[0] + colours[1] + colours[2];
-		if (sum > 255)
-		{
-			colours[0] *= 255;
-			colours[0] /= sum;
-			colours[1] *= 255;
-			colours[1] /= sum;
-			colours[2] *= 255;
-			colours[2] /= sum;
-		}
 		colorWipe(s_strip.Color(colours[0], colours[1], colours[2]), 50);
 	}
 }
@@ -69,12 +60,7 @@ void handleSerial(char nextByte)
 void setup(void)
 {
 	Serial.begin(115200);
-
-	delay(3000);
 	
-	LCD_setup();
-	LCD_ResetBitmap();
-
 	s_strip.begin();
   	s_strip.show();
 

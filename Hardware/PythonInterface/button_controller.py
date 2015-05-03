@@ -11,6 +11,8 @@ import pickle
 
 import queue
 
+import array
+
 class SerialThread(threading.Thread):
 
 	def handleButtonPress(self):
@@ -24,14 +26,18 @@ class SerialThread(threading.Thread):
 			evt = self.port.read(1)
 			
 			if (evt == b'0'):
+				print("Got button press.")
 				self.handleButtonPress()
+
+			elif len(evt):
+				print(ord(evt))
 
 			if not self.q.empty():
 				data = self.q.get()
 				rgb = pickle.loads(data)
-				self.port.write([rgb[0]])
-				self.port.write([rgb[1]])
-				self.port.write([rgb[2]])
+				print("Got RGB values {0}, {1}, {2}".format(rgb[0], rgb[1], rgb[2]))
+				rgb = [int(c / 4) for c in rgb]
+				self.port.write(rgb)
 
 	def setQueue(self, q):
 		self.q = q
