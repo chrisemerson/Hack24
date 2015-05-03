@@ -4,8 +4,56 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8418e69963f4ce4a381881d6d49fe920",
+    "hash": "6401cee508ca5841a2fcdb70372fa14f",
     "packages": [
+        {
+            "name": "esendex/sdk",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/esendex/esendex-php-sdk.git",
+                "reference": "d304ac2df3f8b99fe3e45a666678b9e586532778"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/esendex/esendex-php-sdk/zipball/d304ac2df3f8b99fe3e45a666678b9e586532778",
+                "reference": "d304ac2df3f8b99fe3e45a666678b9e586532778",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Esendex": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Esendex Support",
+                    "email": "support@esendex.com"
+                }
+            ],
+            "description": "Send SMS from your application using the Esendex API",
+            "homepage": "http://developers.esendex.com",
+            "keywords": [
+                "api",
+                "requests",
+                "rest",
+                "restful",
+                "sms"
+            ],
+            "time": "2014-12-18 09:47:35"
+        },
         {
             "name": "guzzlehttp/guzzle",
             "version": "5.2.0",

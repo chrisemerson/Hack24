@@ -4,7 +4,8 @@
       "bin-dir": "bin"
     },
     "require": {
-        "guzzlehttp/guzzle": "~5.2"
+        "guzzlehttp/guzzle": "~5.2",
+        "esendex/sdk": "^1.0"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.2",
@@ -31,7 +32,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "BigButton\\App\\": ["spec/"]
+            "spec\\BigButton\\App\\": ["spec/"]
         }
     }
 }
