@@ -14,4 +14,8 @@ $inboundMessageHandler->registerListener(
     )
 );
 
+$inboundMessageHandler->registerListener(
+    new \BigButton\App\TextMessageListeners\GiveLoan()
+);
+
 $inboundMessageHandler->onTextMessageReceived($inboundMessage);
