@@ -1194,37 +1194,35 @@ class GoogleImagesLookupColourMap implements ColourMap
 
     public function getColourFromName($name)
     {
-        if (!isset(self::$cache[strtolower($name)])) {
-            $client = new Client();
+        $client = new Client();
 
-            $request = $client->createRequest('GET', self::$url);
+        $request = $client->createRequest('GET', self::$url);
 
-            $query = $request->getQuery();
+        $query = $request->getQuery();
 
-            $query->set('v', '1.0');
-            $query->set('q', "Colour " . $name);
+        $query->set('v', '1.0');
+        $query->set('q', "Colour " . $name);
 
-            $response = $client->send($request);
+        $response = $client->send($request);
 
-            $results = json_decode($response->getBody()->getContents());
-            $url = $results->responseData->results[0]->unescapedUrl;
+        $results = json_decode($response->getBody()->getContents());
+        $url = $results->responseData->results[0]->unescapedUrl;
 
-            $command =
-                "convert"
-                . " " . escapeshellarg($url)
-                . " -colors 16"
-                . " -depth 8"
-                . " -format \"%c\""
-                . " histogram:info:"
-                . " | head -n 1";
+        $command =
+            "convert"
+            . " " . escapeshellarg($url)
+            . " -colors 16"
+            . " -depth 8"
+            . " -format \"%c\""
+            . " histogram:info:"
+            . " | head -n 1";
 
-            $colourInfo = shell_exec($command);
+        $colourInfo = shell_exec($command);
 
-            if (preg_match("/srgb\\((\\d+),(\\d+),(\\d+)\\)/", $colourInfo, $matches)) {
-                self::$cache[strtolower($name)] = new Colour($matches[1], $matches[2], $matches[3]);
-            }
+        if (preg_match("/srgb\\((\\d+),(\\d+),(\\d+)\\)/", $colourInfo, $matches)) {
+            return new Colour($matches[1], $matches[2], $matches[3]);
+        } else {
+            return new Colour(0, 0, 0);
         }
-
-        return self::$cache[strtolower($name)];
     }
 }

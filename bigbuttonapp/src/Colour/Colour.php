@@ -64,7 +64,7 @@ class Colour
     /** @param int */
     private function guardAgainstInvalidColourValue($colourValue, $label)
     {
-        if (!is_int($colourValue) || $colourValue < 0 || $colourValue > 255) {
+        if (!is_numeric($colourValue) || $colourValue < 0 || $colourValue > 255) {
             throw new InvalidColourValueException(
                 "Invalid " . $label . " value '" . $colourValue . "' - Must be an int between 0 and 255"
             );

@@ -20,7 +20,7 @@ class UpdateButtonColour implements TextMessageListener
     public function onTextMessageReceived(InboundMessage $message)
     {
         if (preg_match("/^colour(.*)$/i", $message->getMessageText(), $matches)) {
-            $colourToUpdateTo = $this->colourMap->getColourFromName($matches[1]);
+            $colourToUpdateTo = $this->colourMap->getColourFromName(trim($matches[1]));
 
             $buttonUpdate = new ButtonUpdate();
             $buttonUpdate->setLEDColour($colourToUpdateTo);
