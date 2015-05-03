@@ -31,7 +31,7 @@ class GiveLoan implements TextMessageListener
 
                 $money = rand(1, trim($matches[1]));
 
-                OutboundMessage::send($message->getFrom(), sprintf('You have been given a loan of £%s, yay!', number_format($money, 2, '.', ',')));
+                OutboundMessage::send($message->getFrom(), sprintf('You have been given a loan of %s pounds, yay!', number_format($money, 2, '.', ',')));
             }
             else {
                 $colour = 'red';
