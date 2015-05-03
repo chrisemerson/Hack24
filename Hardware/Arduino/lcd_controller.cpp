@@ -70,22 +70,37 @@ LCDShield * LCD_Shield(void)
   return &s_lcd;
 }
 
-uint32_t s_bitmapPixel = 0;
-void LCD_ResetBitmap(void)
+static uint8_t s_px[] = {0, 0};
+#define X s_px[0]
+#define Y s_px[1]
+
+static void incrementPx(void)
 {
-  s_bitmapPixel = 0;
+  Y++;
+  if (Y == 132)
+  {
+    Y = 0;
+    X++;
+    if (X == 136)
+    {
+      X = 0;
+    }
+  }
 }
 
-void LCD_SetNextBitmapPixel(uint16_t colour)
+void LCD_ResetBitmap(void)
 {
-  uint8_t x = s_bitmapPixel % 128;
-  uint8_t y = s_bitmapPixel / 128;
-  s_lcd.setPixel(colour, x, y);
-  s_bitmapPixel++;
+  X = 0;
+  Y = 1;
+}
 
+void LCD_SetNextBitmapPixel(bool on)
+{
+  s_lcd.setPixel(on ? BLACK : WHITE, X, Y);
+  incrementPx();
 }
 
 bool LCD_BitmapComplete(void)
 {
-  return s_bitmapPixel == 0;
+  return false;//return (s_px[0] == 0) && (s_px[1] == 0);
 }
