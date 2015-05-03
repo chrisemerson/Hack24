@@ -29,11 +29,8 @@ class RateManager implements TextMessageListener
     public function onTextMessageReceived(InboundMessage $message)
     {
         if (preg_match("/manager/i", $message->getMessageText(), $matches)) {
-            $scores = $this->sentiment->score($message->getMessageText());
+            //$scores = $this->sentiment->score($message->getMessageText());
             $class = $this->sentiment->categorise($message->getMessageText());
-
-            OutboundMessage::send($message->getFrom(), print_r($scores, true));
-            OutboundMessage::send($message->getFrom(), print_r($class, true));
 
             if ($class == 'pos') {
                 $colour = 'green';
