@@ -18,8 +18,26 @@ class SendNextEventTextMessageListener implements ButtonListener
         $message = 0;
 
         if (count($events['events'])) {
-            $message = $events['events'][0]['summary'];
-            $message = print_r($events, true);
+            $event = $events['events'][0];
+
+            $start = new DateTime($event['start']);
+            $end = new DateTime($event['start']);
+
+            $now = new DateTime();
+
+            // The event is in the past
+            if ($start < $now) {
+                $past = true;
+                $delay = $start->diff($now);
+            }
+            // It's in the future
+            else {
+                $past = false;
+                $delay = $start->diff($start);
+            }
+
+            $message = sprintf("Your next events %s in %s hours: \n\n%s\n", ($past ? 'ends' : 'is'), $delay->format('%h hour(s)'), $event['summary'], $event['description']);
+            //$message = print_r($events, true);
         }
 
         OutboundMessage::send(file_get_contents("/home/vagrant/.phoneno"), $message);
