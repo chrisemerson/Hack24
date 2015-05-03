@@ -42,7 +42,7 @@ class Broadway implements TextMessageListener
 //            $csv = array_map("str_getcsv", file(__DIR__ ."/../../data.csv", "r"));
 
 //            OutboundMessage::send($message->getFrom(), print_r(count($csv), true));
-            OutboundMessage::send($message->getFrom(), sprintf('I think you should watch... "%s". First screened on %s at %s.', $csv[$index][3], $csv[$index][0], $csv[$index][1]));
+            OutboundMessage::send($message->getFrom(), sprintf('I think you should watch... "%s". Screened at Broadway cinema on %s at %s.', $csv[$index][3], $csv[$index][0], $csv[$index][1]));
 //
             $buttonUpdate = new ButtonUpdate();
             $buttonUpdate->setLEDColour($this->colourMap->getColourFromName($csv[$index][3]));
