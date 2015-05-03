@@ -16,9 +16,10 @@ class Broadway implements TextMessageListener
         if (preg_match("/^Film$/i", $message->getMessageText(), $matches)) {
             $row = rand(0, 33787);
 
-            OutboundMessage::send($message->getFrom(), print_r(getcwd(), true));
+            OutboundMessage::send($message->getFrom(), print_r(realpath(__DIR__ ."/../../data.csv"), true));
+            OutboundMessage::send($message->getFrom(), print_r(file_exists(__DIR__ ."/../../data.csv"), true));
 
-            $csv = array_map("str_getcsv", file("../data.csv", "r"));
+            $csv = array_map("str_getcsv", file(__DIR__ ."/../../data.csv", "r"));
 
             OutboundMessage::send($message->getFrom(), print_r($csv[3], true));
 //
