@@ -716,12 +716,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LewisW/chronofy-php.git",
-                "reference": "f76816fa25d28ea0558b04fbf2c6c785f25d603a"
+                "reference": "49bcae595dc318eb24396d9617f6e9c14e06abc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LewisW/chronofy-php/zipball/f76816fa25d28ea0558b04fbf2c6c785f25d603a",
-                "reference": "f76816fa25d28ea0558b04fbf2c6c785f25d603a",
+                "url": "https://api.github.com/repos/LewisW/chronofy-php/zipball/49bcae595dc318eb24396d9617f6e9c14e06abc0",
+                "reference": "49bcae595dc318eb24396d9617f6e9c14e06abc0",
                 "shasum": ""
             },
             "require": {
@@ -753,7 +753,7 @@
                 "source": "https://github.com/LewisW/chronofy-php/tree/master",
                 "issues": "https://github.com/LewisW/chronofy-php/issues"
             },
-            "time": "2015-05-02 21:40:59"
+            "time": "2015-05-03 06:55:06"
         }
     ],
     "packages-dev": [

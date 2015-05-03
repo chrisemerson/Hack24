@@ -467,6 +467,7 @@ class GoogleImagesLookupColourMap implements ColourMap
         'gray (x11 gray)' => [190, 190, 190],
         'gray-asparagus' => [70, 89, 69],
         'gray-blue' => [140, 146, 172],
+        'green' => [0, 255, 0],
         'green (color wheel) (x11 green)' => [0, 255, 0],
         'green (crayola)' => [28, 172, 120],
         'green (html/css color)' => [0, 128, 0],

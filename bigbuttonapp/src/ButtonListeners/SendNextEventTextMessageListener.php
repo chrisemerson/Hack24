@@ -12,16 +12,16 @@ class SendNextEventTextMessageListener implements ButtonListener
     {
         $apiKey = file_get_contents("/home/vagrant/.cronofy");
 
-        OutboundMessage::send(file_get_contents("/home/vagrant/.phoneno"), "Test");
-
         $chronofy = new Chronofy($apiKey);
         $events = $chronofy->getEvents(new DateTime('today'), new DateTime('tomorrow'));
 
+        $message = 0;
+
         if (count($events['events'])) {
-            $message = print_r($events['events'][0], true);
-        } else {
-            $message = "sadface";
+            $message = $events['events'][0]['summary'];
+            $message = print_r($events, true);
         }
 
+        OutboundMessage::send(file_get_contents("/home/vagrant/.phoneno"), $message);
     }
 }
