@@ -26,7 +26,7 @@ class GiveLoan implements TextMessageListener
 
                 OutboundMessage::send($message->getFrom(), "Don't be greedy");
 
-            } else if (($accepted = rand(0,1))) {
+            } else if (rand(0,1)) {
                 $colour = 'green';
 
                 $money = rand(1, trim($matches[1]));
