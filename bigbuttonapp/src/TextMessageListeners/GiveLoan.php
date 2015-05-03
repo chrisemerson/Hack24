@@ -17,8 +17,12 @@ class GiveLoan implements TextMessageListener
 
     public function onTextMessageReceived(InboundMessage $message)
     {
+        OutboundMessage::send($message->getFrom(), $message->getMessageText());
+
         if (preg_match("/^Loan me £?([0-9\\.]+)/i", $message->getMessageText(), $matches)) {
             $accepted = rand(0,1);
+
+            OutboundMessage::send($message->getFrom(), $accepted);
 
             if ($accepted) {
                 $colour = 'green';
