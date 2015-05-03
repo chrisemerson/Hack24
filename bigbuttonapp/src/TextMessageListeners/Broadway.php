@@ -5,12 +5,22 @@ use BigButton\App\Button\Button;
 use BigButton\App\Button\ButtonUpdate;
 use BigButton\App\Button\TextMessageListener;
 use BigButton\App\Colour\ColourMap;
+use BigButton\App\Colour\GoogleImagesLookupColourMap;
 use BigButton\App\TextMessage\InboundMessage;
 use BigButton\App\TextMessage\OutboundMessage;
 use PHPInsight\Sentiment;
 
 class Broadway implements TextMessageListener
 {
+    /**
+     * @var GoogleImagesLookupColourMap
+     */
+    private $colourMap;
+
+    public function __construct(GoogleImagesLookupColourMap $colourMap) {
+        $this->colourMap = $colourMap;
+    }
+
     public function onTextMessageReceived(InboundMessage $message)
     {
         if (preg_match("/^Film$/i", $message->getMessageText(), $matches)) {
@@ -34,11 +44,11 @@ class Broadway implements TextMessageListener
 //            OutboundMessage::send($message->getFrom(), print_r(count($csv), true));
             OutboundMessage::send($message->getFrom(), sprintf('I think you should watch... "%s". First screened on %s at %s.', $csv[$index][3], $csv[$index][0], $csv[$index][1]));
 //
-//            $buttonUpdate = new ButtonUpdate();
-//            $buttonUpdate->setLEDColour($this->colourMap->getColourFromName($colour));
-//
-//            $button = new Button();
-//            $button->sendUpdate($buttonUpdate);
+            $buttonUpdate = new ButtonUpdate();
+            $buttonUpdate->setLEDColour($this->colourMap->getColourFromName($csv[$index][3]));
+
+            $button = new Button();
+            $button->sendUpdate($buttonUpdate);
 
 //
 //            if ($accepted) {
