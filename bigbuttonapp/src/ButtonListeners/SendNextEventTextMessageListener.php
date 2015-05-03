@@ -21,7 +21,7 @@ class SendNextEventTextMessageListener implements ButtonListener
             $event = $events['events'][0];
 
             $start = new DateTime($event['start']);
-            $end = new DateTime($event['start']);
+            $end = new DateTime($event['end']);
 
             $now = new DateTime();
 
