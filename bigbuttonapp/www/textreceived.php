@@ -1,5 +1,4 @@
 <?php
-use Semantria\SemantriaAuthClient;
 
 require_once "../vendor/autoload.php";
 
