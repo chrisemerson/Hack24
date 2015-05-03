@@ -28,7 +28,7 @@ class SendNextEventTextMessageListener implements ButtonListener
             // The event is in the past
             if ($start < $now) {
                 $past = true;
-                $delay = $start->diff($now);
+                $delay = $end->diff($now);
             }
             // It's in the future
             else {
@@ -36,7 +36,9 @@ class SendNextEventTextMessageListener implements ButtonListener
                 $delay = $start->diff($start);
             }
 
-            $message = sprintf("Your next events %s in %s hours: \n\n%s\n", ($past ? 'ends' : 'is'), $delay->format('%h hour(s)'), $event['summary'], $event['description']);
+            $hours = $delay->format('%h');
+
+            $message = sprintf("Your %s event %s in %s hour%s: \n\n%s\n", ($past ? 'current' : 'next'), ($past ? 'ends' : 'is'), $hours, $hours ? 's' : '', $event['summary'], $event['description']);
             //$message = print_r($events, true);
         }
 
