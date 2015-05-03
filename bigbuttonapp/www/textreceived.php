@@ -9,13 +9,13 @@ $inboundMessage = $inboundMessageFactory->constructFromXML($data);
 $inboundMessageHandler = new \BigButton\App\TextMessage\InboundMessageHandler();
 
 $inboundMessageHandler->registerListener(
-    new \BigButton\App\TextMessageListeners\UpdateButtonColour(
+    new \BigButton\App\TextMessageListeners\GiveLoan(
         new \BigButton\App\Colour\GoogleImagesLookupColourMap()
     )
 );
 
 $inboundMessageHandler->registerListener(
-    new \BigButton\App\TextMessageListeners\GiveLoan(
+    new \BigButton\App\TextMessageListeners\UpdateButtonColour(
         new \BigButton\App\Colour\GoogleImagesLookupColourMap()
     )
 );
