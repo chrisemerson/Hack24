@@ -20,11 +20,7 @@ class GiveLoan implements TextMessageListener
 
     public function onTextMessageReceived(InboundMessage $message)
     {
-        OutboundMessage::send(file_get_contents("/home/vagrant/.phoneno"), $message->getMessageText());
-        OutboundMessage::send($message->getFrom(), $message->getMessageText());
-        var_dump($message->getFrom());
-
-        if (preg_match("/^Loan me £?([0-9\\.]+)/i", $message->getMessageText(), $matches)) {
+        if (preg_match("/^Loan me ([0-9]+)/i", $message->getMessageText(), $matches)) {
             $accepted = rand(0,1);
 
             OutboundMessage::send($message->getFrom(), $accepted);
