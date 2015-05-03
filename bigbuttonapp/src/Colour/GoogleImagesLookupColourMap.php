@@ -739,7 +739,7 @@ class GoogleImagesLookupColourMap implements ColourMap
         'olivine' => [154, 185, 115],
         'onyx' => [53, 56, 57],
         'opera mauve' => [183, 132, 167],
-        'orange (color wheel)' => [255, 127, 0],
+        'orange' => [255, 127, 0],
         'orange (crayola)' => [255, 117, 56],
         'orange (pantone)' => [255, 88, 0],
         'orange (ryb)' => [251, 153, 2],
