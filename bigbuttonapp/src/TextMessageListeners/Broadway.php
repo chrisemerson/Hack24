@@ -13,7 +13,7 @@ class Broadway implements TextMessageListener
 {
     public function onTextMessageReceived(InboundMessage $message)
     {
-        if (preg_match("/^(Film|What should I watch?)$/i", $message->getMessageText(), $matches)) {
+        if (preg_match("/^Film$/i", $message->getMessageText(), $matches)) {
             $index = rand(0, 33786);
 
             $fp = fopen(__DIR__ . "/../../data.csv", 'r');
