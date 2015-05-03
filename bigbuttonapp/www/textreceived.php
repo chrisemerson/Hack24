@@ -15,7 +15,9 @@ $inboundMessageHandler->registerListener(
 );
 
 $inboundMessageHandler->registerListener(
-    new \BigButton\App\TextMessageListeners\GiveLoan()
+    new \BigButton\App\TextMessageListeners\GiveLoan(
+        new \BigButton\App\Colour\GoogleImagesLookupColourMap()
+    )
 );
 
 $inboundMessageHandler->onTextMessageReceived($inboundMessage);

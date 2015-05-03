@@ -17,7 +17,7 @@ class GiveLoan implements TextMessageListener
 
     public function onTextMessageReceived(InboundMessage $message)
     {
-        if (preg_match("/^Loan me £?([0-9\.]+)/i", $message->getMessageText(), $matches)) {
+        if (preg_match("/^Loan me £?([0-9\\.]+)/i", $message->getMessageText(), $matches)) {
             $accepted = rand(0,1);
 
             if ($accepted) {
