@@ -19,7 +19,14 @@ class Broadway implements TextMessageListener
             OutboundMessage::send($message->getFrom(), print_r(realpath(__DIR__ ."/../../data.csv"), true));
             OutboundMessage::send($message->getFrom(), print_r(file_exists(__DIR__ ."/../../data.csv"), true));
 
-            $csv = array_map("str_getcsv", file(__DIR__ ."/../../data.csv", "r"));
+            $fp = fopen(__DIR__ . "/../../data.csv", 'r');
+            $csv = [];
+
+            while($row = fgetcsv($fp)) {
+                $csv[] = $row;
+            }
+
+//            $csv = array_map("str_getcsv", file(__DIR__ ."/../../data.csv", "r"));
 
             OutboundMessage::send($message->getFrom(), print_r($csv[3], true));
 //
