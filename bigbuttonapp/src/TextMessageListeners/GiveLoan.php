@@ -10,6 +10,9 @@ use BigButton\App\TextMessage\OutboundMessage;
 
 class GiveLoan implements TextMessageListener
 {
+    /** @var ColourMap */
+    private $colourMap;
+
     public function __construct(ColourMap $colourMap)
     {
         $this->colourMap = $colourMap;
