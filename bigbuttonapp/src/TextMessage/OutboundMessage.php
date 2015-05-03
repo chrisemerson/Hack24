@@ -1,21 +1,19 @@
 <?php
-namespace BigButton\App\TextMessageListeners;
+namespace BigButton\App\TextMessage;
 
-use BigButton\App\Button\TextMessageListener;
-use BigButton\App\TextMessage\InboundMessage;
 use Esendex\Authentication\LoginAuthentication;
 use Esendex\DispatchService;
 use Esendex\Model\DispatchMessage;
 use Esendex\Model\Message;
 
-class ReplyToTextMessageListener implements TextMessageListener
+class OutboundMessage
 {
-    public function onTextMessageReceived(InboundMessage $message)
+    public static function send($to, $message)
     {
         $replyMessage = new DispatchMessage(
             "BigButton",
-            $message->getFrom(),
-            "You said: " . $message->getMessageText(),
+            $to,
+            $message,
             Message::SmsType
         );
 

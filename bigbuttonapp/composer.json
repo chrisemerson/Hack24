@@ -6,7 +6,8 @@
     "require": {
         "guzzlehttp/guzzle": "~5.2",
         "esendex/sdk": "^1.0",
-        "vivait/chronofy-php": "dev-master@dev"
+        "vivait/chronofy-php": "dev-master@dev",
+        "doctrine/common": "^2.5"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.2",

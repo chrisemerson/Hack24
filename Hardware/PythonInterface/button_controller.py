@@ -16,7 +16,7 @@ import array
 class SerialThread(threading.Thread):
 
 	def handleButtonPress(self):
-		r = requests.post("http://count.io/vb/hack24button/presses+")
+		r = requests.post("http://bigbutton.dev/buttonpressed.php")
 
 	def setPort(self, port):
 		self.port = port
@@ -36,7 +36,6 @@ class SerialThread(threading.Thread):
 				data = self.q.get()
 				rgb = pickle.loads(data)
 				print("Got RGB values {0}, {1}, {2}".format(rgb[0], rgb[1], rgb[2]))
-				rgb = [int(c / 4) for c in rgb]
 				self.port.write(rgb)
 
 	def setQueue(self, q):

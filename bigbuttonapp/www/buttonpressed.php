@@ -3,6 +3,6 @@ require_once "../vendor/autoload.php";
 
 $clickHandler = new \BigButton\App\Button\ClickHandler();
 
-//Register listeners here
+$clickHandler->registerListener(new \BigButton\App\ButtonListeners\SendNextEventTextMessageListener());
 
 $clickHandler->onButtonPress();

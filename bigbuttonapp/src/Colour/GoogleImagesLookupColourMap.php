@@ -7,8 +7,6 @@ class GoogleImagesLookupColourMap implements ColourMap
 {
     private static $url = "http://ajax.googleapis.com/ajax/services/search/images";
 
-    private static $cache = [];
-
     private $initialMap = [
         'acid green' => [176, 191, 26],
         'aero' => [124, 185, 232],
@@ -1184,16 +1182,13 @@ class GoogleImagesLookupColourMap implements ColourMap
         'zomp' => [57, 167, 142]
     ];
 
-    public function __construct()
-    {
-        foreach ($this->initialMap as $colourName => $colourInfo) {
-            list($r, $g, $b) = $colourInfo;
-            self::$cache[strtolower($colourName)] = new Colour($r, $g, $b);
-        }
-    }
-
     public function getColourFromName($name)
     {
+        if (isset($this->initialMap[strtolower(trim($name))])) {
+            list($r, $g, $b) = $this->initialMap[strtolower(trim($name))];
+            return new Colour($r, $g, $b);
+        }
+
         $client = new Client();
 
         $request = $client->createRequest('GET', self::$url);
@@ -1201,7 +1196,7 @@ class GoogleImagesLookupColourMap implements ColourMap
         $query = $request->getQuery();
 
         $query->set('v', '1.0');
-        $query->set('q', "Colour " . $name);
+        $query->set('q', $name);
 
         $response = $client->send($request);
 
