@@ -24,6 +24,10 @@ $inboundMessageHandler->registerListener(
 );
 
 $inboundMessageHandler->registerListener(
+    new \BigButton\App\TextMessageListeners\Broadway()
+);
+
+$inboundMessageHandler->registerListener(
     new \BigButton\App\TextMessageListeners\UpdateButtonColour(
         new \BigButton\App\Colour\GoogleImagesLookupColourMap()
     )
