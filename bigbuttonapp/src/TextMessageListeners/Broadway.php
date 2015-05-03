@@ -14,7 +14,7 @@ class Broadway implements TextMessageListener
     public function onTextMessageReceived(InboundMessage $message)
     {
         if (preg_match("/^Film$/i", $message->getMessageText(), $matches)) {
-            $index = rand(0, 33787);
+            $index = rand(0, 33786);
 
             $fp = fopen(__DIR__ . "/../../data.csv", 'r');
             $csv = [];
@@ -32,7 +32,7 @@ class Broadway implements TextMessageListener
 //            $csv = array_map("str_getcsv", file(__DIR__ ."/../../data.csv", "r"));
 
 //            OutboundMessage::send($message->getFrom(), print_r(count($csv), true));
-            OutboundMessage::send($message->getFrom(), print_r($csv[$index], true));
+            OutboundMessage::send($message->getFrom(), sprintf('I think you should watch... %s', $csv[$index]));
 //
 //            $buttonUpdate = new ButtonUpdate();
 //            $buttonUpdate->setLEDColour($this->colourMap->getColourFromName($colour));
