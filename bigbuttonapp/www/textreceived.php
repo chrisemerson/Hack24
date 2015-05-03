@@ -1,4 +1,6 @@
 <?php
+use Semantria\SemantriaAuthClient;
+
 require_once "../vendor/autoload.php";
 
 $data = file_get_contents("php://input");
@@ -11,6 +13,12 @@ $inboundMessageHandler = new \BigButton\App\TextMessage\InboundMessageHandler();
 $inboundMessageHandler->registerListener(
     new \BigButton\App\TextMessageListeners\GiveLoan(
         new \BigButton\App\Colour\GoogleImagesLookupColourMap()
+    )
+);
+
+$inboundMessageHandler->registerListener(
+    new \BigButton\App\TextMessageListeners\RateManager(
+        new \PHPInsight\Sentiment()
     )
 );
 
