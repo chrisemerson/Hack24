@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6401cee508ca5841a2fcdb70372fa14f",
+    "hash": "87e565cbdd12b9cfe4c1bd563c9c4e7e",
     "packages": [
         {
             "name": "esendex/sdk",
@@ -256,6 +256,106 @@
             ],
             "description": "A lightweight implementation of CommonJS Promises/A for PHP",
             "time": "2014-12-30 13:32:42"
+        },
+        {
+            "name": "symfony/options-resolver",
+            "version": "v2.6.6",
+            "target-dir": "Symfony/Component/OptionsResolver",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/OptionsResolver.git",
+                "reference": "d619503992eea05eb407a6db76e28dc1b7619416"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/OptionsResolver/zipball/d619503992eea05eb407a6db76e28dc1b7619416",
+                "reference": "d619503992eea05eb407a6db76e28dc1b7619416",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\OptionsResolver\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony OptionsResolver Component",
+            "homepage": "http://symfony.com",
+            "keywords": [
+                "config",
+                "configuration",
+                "options"
+            ],
+            "time": "2015-03-13 17:37:22"
+        },
+        {
+            "name": "vivait/chronofy-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LewisW/chronofy-php.git",
+                "reference": "f76816fa25d28ea0558b04fbf2c6c785f25d603a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LewisW/chronofy-php/zipball/f76816fa25d28ea0558b04fbf2c6c785f25d603a",
+                "reference": "f76816fa25d28ea0558b04fbf2c6c785f25d603a",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~5.0",
+                "php": ">=5.3.3",
+                "symfony/options-resolver": "~2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Vivait\\Chronofy\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robin Cawser",
+                    "email": "robin@vivait.co.uk"
+                },
+                {
+                    "name": "Lewis Wright",
+                    "email": "lewis@vivait.co.uk"
+                }
+            ],
+            "description": "PHP client for chronofy",
+            "support": {
+                "source": "https://github.com/LewisW/chronofy-php/tree/master",
+                "issues": "https://github.com/LewisW/chronofy-php/issues"
+            },
+            "time": "2015-05-02 21:40:59"
         }
     ],
     "packages-dev": [
@@ -1490,7 +1590,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "vivait/chronofy-php": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

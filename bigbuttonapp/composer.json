@@ -5,7 +5,8 @@
     },
     "require": {
         "guzzlehttp/guzzle": "~5.2",
-        "esendex/sdk": "^1.0"
+        "esendex/sdk": "^1.0",
+        "vivait/chronofy-php": "dev-master@dev"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.2",
@@ -34,5 +35,11 @@
         "psr-4": {
             "spec\\BigButton\\App\\": ["spec/"]
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/LewisW/chronofy-php"
+        }
+    ]
 }
