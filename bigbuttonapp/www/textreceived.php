@@ -18,6 +18,7 @@ $inboundMessageHandler->registerListener(
 
 $inboundMessageHandler->registerListener(
     new \BigButton\App\TextMessageListeners\RateManager(
+        new \BigButton\App\Colour\GoogleImagesLookupColourMap(),
         new \PHPInsight\Sentiment()
     )
 );

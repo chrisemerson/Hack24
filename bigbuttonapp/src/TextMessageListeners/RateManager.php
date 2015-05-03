@@ -15,10 +15,15 @@ class RateManager implements TextMessageListener
      * @var Sentiment
      */
     private $sentiment;
+    /**
+     * @var ColourMap
+     */
+    private $colourMap;
 
-    public function __construct(Sentiment $sentiment)
+    public function __construct(ColourMap $colourMap, Sentiment $sentiment)
     {
         $this->sentiment = $sentiment;
+        $this->colourMap = $colourMap;
     }
 
     public function onTextMessageReceived(InboundMessage $message)
@@ -29,6 +34,23 @@ class RateManager implements TextMessageListener
 
             OutboundMessage::send($message->getFrom(), print_r($scores, true));
             OutboundMessage::send($message->getFrom(), print_r($class, true));
+
+            if ($class == 'pos') {
+                $colour = 'green';
+            }
+            else if ($class == 'neu') {
+                $colour = 'yellow';
+            }
+            else if ($class == 'neg') {
+                $colour = 'red';
+            }
+
+            $buttonUpdate = new ButtonUpdate();
+            $buttonUpdate->setLEDColour($this->colourMap->getColourFromName($colour));
+
+            $button = new Button();
+            $button->sendUpdate($buttonUpdate);
+
 //
 //            if ($accepted) {
 //                $colour = 'green';
