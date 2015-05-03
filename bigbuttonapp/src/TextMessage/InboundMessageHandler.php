@@ -16,6 +16,7 @@ class InboundMessageHandler
     public function onTextMessageReceived(InboundMessage $message)
     {
         foreach ($this->listeners as $listener) {
+            var_dump($message);
             $listener->onTextMessageReceived($message);
         }
     }
